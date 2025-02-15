@@ -94,4 +94,14 @@ export const signIn = async (req, res, next) => {
   }
 };
 
-export const signOut = async (req, res) => {};
+export const signOut = async (req, res, next) => {
+  try {
+    res.clearCookie("token");
+    res.json({
+      success: true,
+      message: "User Signed Out successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
