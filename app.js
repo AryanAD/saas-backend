@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 
 import errorMiddleware from "./middlewares/error.middleware.js";
+import arcjetMiddleware from "./middlewares/arcjet.middleware.js";
 
 import { PORT as envPORT } from "./config/env.js";
 
@@ -25,6 +26,7 @@ app.use("/api/v1/subscriptions", subscriptionRouter);
 
 // Custom Middleware
 app.use(errorMiddleware);
+app.use(arcjetMiddleware);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the SAAS server!");
