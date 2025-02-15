@@ -1,4 +1,5 @@
 import express from "express";
+import { PORT as envPORT } from "./config/env.js";
 
 const app = express();
 
@@ -6,8 +7,9 @@ app.get("/", (req, res) => {
   res.send("Welcome to the SAAS server!");
 });
 
-app.listen(3000, () => {
-  console.log("SAAS Server is live on http://localhost:3000");
+const PORT = envPORT || 3300;
+app.listen(PORT, () => {
+  console.log(`SAAS Server is live on http://localhost:${PORT}`);
 });
 
 export default app;
