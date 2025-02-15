@@ -9,6 +9,7 @@ import { PORT as envPORT } from "./config/env.js";
 import authRouter from "./routes/auth.routes.js";
 import userRouter from "./routes/user.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
+import workflowRouter from "./routes/workflow.routes.js";
 
 import connectToDatabase from "./database/mongodb.js";
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/subscriptions", subscriptionRouter);
+app.use("/api/v1/workflows", workflowRouter);
 
 // Custom Middleware
 app.use(errorMiddleware);
